@@ -38,9 +38,11 @@
 下载 `index.html`。
 用手机浏览器打开该文件，或先传到手机再用浏览器打开。
 完全离线，飞行模式也能记录。
+
 方式二：在线使用（已部署到 GitHub Pages）
 手机上直接打开：https://cusimao.github.io/What-do-you-want-to-eat-today/
 打开后 iPhone：Safari 分享 → 添加到主屏幕；Android：Chrome 菜单 → 安装应用 / 添加到主屏幕。
+
 方式三：自己部署一份（Fork 或新仓库）
 当前仓库：`cusimao/What-do-you-want-to-eat-today`
 把本目录文件传到你的仓库（网页端拖拽上传，或下面命令行）。
