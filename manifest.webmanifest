@@ -1,0 +1,19 @@
+{
+  "name": "今天吃什么",
+  "short_name": "今天吃什么",
+  "description": "离线可用的饮食热量记录工具：记录每天吃了什么，算出热量缺口与理论体重变化。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6fb",
+  "theme_color": "#2f7cf6",
+  "categories": ["health", "lifestyle", "food"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
