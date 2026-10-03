@@ -10,6 +10,9 @@
 <meta name="apple-mobile-web-app-title" content="今天吃什么">
 <meta name="format-detection" content="telephone=no">
 <title>今天吃什么</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <style>
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
@@ -1353,6 +1356,10 @@
     } catch (e) { return ''; }
   }
 
+  function hasHeadLink(rel) {
+    try { return !!document.querySelector('link[rel="' + rel + '"]'); } catch (e) { return false; }
+  }
+
   function addHeadLink(rel, href) {
     var l = document.createElement('link');
     l.rel = rel;
@@ -1364,11 +1371,12 @@
     var proto = (window.location && window.location.protocol) || '';
     var hosted = (proto === 'http:' || proto === 'https:');
 
-    // 托管模式（GitHub Pages 等）
+    // 托管模式（GitHub Pages / Netlify 等）
     if (hosted) {
       try {
-        addHeadLink('manifest', 'manifest.webmanifest');
-        addHeadLink('apple-touch-icon', 'icon-180.png');
+        // HTML 里已经静态声明过就不重复注入（静态声明对浏览器「安装应用」最可靠）
+        if (!hasHeadLink('manifest')) addHeadLink('manifest', 'manifest.webmanifest');
+        if (!hasHeadLink('apple-touch-icon')) addHeadLink('apple-touch-icon', 'icon-180.png');
         if (typeof navigator !== 'undefined' && navigator.serviceWorker && navigator.serviceWorker.register) {
           var p = navigator.serviceWorker.register('sw.js');
           if (p && p.catch) p.catch(function () {});
